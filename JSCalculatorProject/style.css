@@ -1,0 +1,102 @@
+#calc
+{
+    width: 250px;
+    height: 450px;
+    background-color: black;
+    border-radius: 20px;
+    border: 2px solid black;
+    position: absolute;
+}
+
+#answerScreen
+{
+    background-color: black;
+    width: 100%;
+    height: 65px;
+    text-align: right;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 15px;
+    position: relative;
+    top: 40px;
+}
+
+
+#buttonHolder
+{
+    width: 100%;
+    height: 74%;
+    position: relative;
+    top: 50px;
+    background-color: black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#noBtnHolder
+{
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    right: px;
+    top: 0px;
+    left: 0px;
+    background-color: black;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+}
+
+.noBtn
+{
+   width: 50px;
+   height: 50px;
+   border-radius: 25px;
+   margin: 4px;
+   background-color: darkgrey;
+   border: 0px;
+   color: white;
+   font-size: medium;
+   
+}
+#zero
+{
+    position: relative;
+    height: 40px;
+    width: 121px;
+    text-align: left;
+    border-radius: 15px;
+    background-color: darkgrey;
+    color: white;
+    font-size: medium;
+}
+
+#placeholder
+{
+    background-color: black;
+    color: black;
+    border: 0px
+}
+
+#operationHolder
+{
+    position: absolute;
+    right: 0px;
+    left: 186px;
+    height: 100%;
+    border-bottom-right-radius: 15px;
+    background-color: black;
+}
+
+.operationBtn
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 4px;
+    background-color: darkgrey;
+    border: 0px;
+    color: white;
+    font-size: medium;
+    background-color: orange;
+}
