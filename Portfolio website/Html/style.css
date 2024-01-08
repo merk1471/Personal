@@ -1,0 +1,67 @@
+p
+{
+  text-align: center;
+  color: darkgoldenrod;
+  font-size: large;
+}
+
+.one
+{
+  text-align: center;
+}
+
+.page2header1
+{
+  text-align: center;
+}
+
+body
+{
+  background-color: rgb(212, 186, 137);
+}
+
+.textcontainer
+{
+  position: relative;
+  left: 20px;
+  background-color: beige;
+  width: 600px; /* Set the width of the container */
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 20px; /* Add some padding for spacing */
+      border: 1px solid #010000; /* Optional: Add a border for visualization */
+      border-width: 5px;
+      border-radius: 15px; /* Add rounded corners */
+  height: 900px;
+  padding: 40px;
+}
+
+.button1
+{
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 20px 50px;
+  cursor: pointer;
+}
+
+.button1:hover
+{
+  background-color: gold;
+  color: black;
+}
+
+nav
+{
+  display: flex;
+      justify-content: space-around;
+      background-color: #555; /* Set the background color for the navigation container */
+      padding: 10px; /* Add some padding for spacing */
+      border-radius: 5px; /* Optional: Add rounded corners */
+      position: sticky; 
+      top: 0px; 
+}
+
