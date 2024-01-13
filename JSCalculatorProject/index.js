@@ -1,123 +1,78 @@
 let inputString = "";
 
-document.getElementById("1").onclick = function()
+function buttonClicked(buttonId)
 {
-    inputString += 1;
-    document.getElementById("answerScreen").innerHTML = inputString;
+    switch(buttonId)
+    {
+        case 'btnOne':
+            inputString += 1;
+            break;
+        case "btnTwo":
+            inputString += 2;
+            break;
+        case "btnThree":
+            inputString += 3;
+            break;
+        case "btnFour":
+            inputString += 4;
+            break;
+        case "btnFive":
+            inputString += 5;
+            break;
+        case "btnSix":
+            inputString += 6;
+            break;
+        case "btnSeven":
+            inputString += 7;
+            break;
+        case "btnEight":
+            inputString += 8;
+            break;
+        case "btnNine":
+            inputString += 9;
+            break;
+        case "btnZero":
+            inputString += 0;
+            break;
+        case "btnClear":
+            inputString = "";
+            break;
+
+    }
+    document.getElementById("answerScreen").textContent = inputString;
 }
 
-document.getElementById("2").onclick = function()
-{
-    inputString += 2;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("3").onclick = function()
-{
-    inputString += 3;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("4").onclick = function()
-{
-    inputString += 4;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("5").onclick = function()
-{
-    inputString += 5;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("6").onclick = function()
-{
-    inputString += 6;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("7").onclick = function()
-{
-    inputString += 7;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("8").onclick = function()
-{
-    inputString += 8;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("9").onclick = function()
-{
-    inputString += 9;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("zero").onclick = function()
-{
-    inputString += 0;
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("clear").onclick = function()
-{
-    inputString = "";
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-
-document.getElementById("division").onclick = function()
-{
+function performOperation(operator) {
     let temp = inputString;
     inputString = "";
     document.getElementById("answerScreen").innerHTML = inputString;
 
-    document.getElementById("equals").addEventListener("click", function() {
-        inputString = Number(temp) / Number(inputString)
-        document.getElementById("answerScreen").innerHTML = inputString;
-    });
+    let operation = {
+        operator: operator,
+        operand: Number(temp)
+    };
+
+    function handleEqualsClick() {
+        switch (operation.operator) {
+            case "/":
+                console.log("hi");
+                inputString = operation.operand / Number(inputString);
+                break;
+            case "*":
+                inputString = operation.operand * Number(inputString);
+                break;
+            case "-":
+                inputString = operation.operand - Number(inputString);
+                break;
+            case "+":
+                inputString = operation.operand + Number(inputString);
+                break;
+        }
+
+        document.getElementById("answerScreen").textContent = inputString;
+
+        document.getElementById("equals").removeEventListener("click", handleEqualsClick);
+    }
+
+    document.getElementById("equals").addEventListener("click", handleEqualsClick);
 }
-
-document.getElementById("multiplication").onclick = function()
-{
-    let temp = inputString;
-    inputString = "";
-    document.getElementById("answerScreen").innerHTML = inputString;
-
-    document.getElementById("equals").addEventListener("click", function() {
-        inputString = Number(temp) * Number(inputString)
-        document.getElementById("answerScreen").innerHTML = inputString;
-    });
-}
-
-document.getElementById("subtraction").onclick = function()
-{
-    let temp = inputString;
-    inputString = "";
-    document.getElementById("answerScreen").innerHTML = inputString;
-
-    document.getElementById("equals").addEventListener("click", function() {
-        inputString = Number(temp) - Number(inputString)
-        document.getElementById("answerScreen").innerHTML = inputString;
-    });
-}
-document.getElementById("dot").onclick = function()
-{
-    inputString += " . ";
-    document.getElementById("answerScreen").innerHTML = inputString;
-}
-
-document.getElementById("addition").onclick = function()
-{
-    let temp = inputString;
-    inputString = "";
-    document.getElementById("answerScreen").innerHTML = inputString;
-
-    document.getElementById("equals").addEventListener("click", function() {
-        inputString = Number(temp) + Number(inputString)
-        document.getElementById("answerScreen").innerHTML = inputString;
-    });
-    
-}
-
