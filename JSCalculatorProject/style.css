@@ -1,11 +1,24 @@
+body
+{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: lightblue;
+}
 #calc
 {
     width: 250px;
     height: 450px;
     background-color: black;
     border-radius: 20px;
-    border: 2px solid black;
+    border: 5px solid white;
     position: absolute;
+    text-align: center;
+    position: relative;
+    bottom: auto;
+    
 }
 
 #answerScreen
@@ -57,8 +70,23 @@
    border: 0px;
    color: white;
    font-size: medium;
+   cursor: pointer;
    
 }
+
+.noBtnP
+{
+   width: 50px;
+   height: 50px;
+   border-radius: 25px;
+   margin: 4px;
+   background-color: darkgrey;
+   border: 0px;
+   color: white;
+   font-size: medium;
+   
+}
+
 #zero
 {
     position: relative;
@@ -99,4 +127,5 @@
     color: white;
     font-size: medium;
     background-color: orange;
+    cursor: pointer;
 }
