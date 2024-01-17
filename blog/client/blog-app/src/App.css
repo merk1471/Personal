@@ -48,3 +48,21 @@ div.post div.text h2{
   margin: 0;
   font-size: 1.5rem;
 }
+
+p.info{
+  margin:6px 0;
+  color: grey;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+div.post p.info a.author{
+  color: black;
+}
+
+div.post p.summary{
+  margin: 10px 0;
+  line-height: 1.3rem;
+}
