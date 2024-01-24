@@ -6,10 +6,10 @@ export const LoginPage = () =>{
             const userN = document.getElementById('usr').value;
         const passwrd = document.getElementById('pswrd').value;
         const dataToSend = {
-        username : userN,
+        name : userN,
         password : passwrd,
          }
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('http://localhost:3000/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,9 +22,10 @@ export const LoginPage = () =>{
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
+            window.location.href = '/userPage';
             const data = await response.json();
-            console.log("Data from the server: " + data);
-        }
+            console.log("Data from the server: " + data.user.name + " " + data.user.password);
+        }   
         catch (error) {
             console.error('Error fetching data: ' + error.message);
         }
@@ -41,7 +42,7 @@ export const LoginPage = () =>{
             <form onSubmit={handleSubmit}>
                 <input id='usr' className="typingBox" type="text" placeholder="username" /> <br />
                 <input id='pswrd' className="typingBox" type="text" placeholder="password" /> <br />
-                <button className="submitBtn">Login</button>
+                <button type='submit' className="submitBtn">Login</button>
             </form>
         </>
     );
