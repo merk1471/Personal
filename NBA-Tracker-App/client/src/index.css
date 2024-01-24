@@ -1,0 +1,49 @@
+body{
+  background-color: beige;
+}
+
+.btn{
+  width: 80px;
+  height: 35px;
+  color: black;
+  background-color: white;
+  border: solid 1.5px black;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.submitBtn{
+  width: 300px
+}
+
+.signup{
+  margin: auto;
+  width: 800px;
+  height: 80em;
+  background-color: orange;
+}
+
+.homePage{
+  background-color: rgb(228, 212, 142);
+  border: solid 5px black;
+  border-radius: 20px;
+  width: 80%;
+  text-align: center;
+  height: 100%;
+  margin: auto;
+}
+
+.typingBox{
+  width: 300px;
+  height: 25px;
+  border: solid 2px black;
+  box-sizing: border-box;
+}
