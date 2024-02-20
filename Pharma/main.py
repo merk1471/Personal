@@ -5,7 +5,7 @@ from managePatient import *
 #Create the main window
 window = Tk()
 window.title("Patient Manager")
-window.geometry("800x800")
+window.attributes("-fullscreen", True)  # Make the window fullscreen
 
 #Create a frame for the buttons
 optionsFrame = ttk.Frame(window)

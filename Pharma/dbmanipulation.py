@@ -89,3 +89,13 @@ def updateUser(patient):
                    """, (year, month, day, name))
     conn.commit()
     conn.close()
+
+def getPerson(name):
+    conn = sqlite3.connect('patients.db')
+    cursor = conn.cursor()
+    cursor.execute(""" SELECT starting_year, starting_month, starting_day FROM patients
+                   WHERE first_name = ?
+                   """, (name,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows

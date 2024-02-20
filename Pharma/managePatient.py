@@ -21,6 +21,7 @@ def updateUsers():
         
         while previousDate < currentDate:
             previousDate += timedelta(weeks=4)  # Increment by 4 weeks
+            print(previousDate)
         
         # Extract year, month, and day from the new date
         new_year = previousDate.year
@@ -102,8 +103,11 @@ def addingProcess():
         patientYear = year.get()
         patientMonth = month.get()
         
-        addPatient(patientName, patientYear, patientMonth, patientDay)
-        addWindow.destroy()
+        if patientName and patientDay and patientYear and patientMonth:
+            addPatient(patientName, patientYear, patientMonth, patientDay)
+            addWindow.destroy()
+        else:
+            pass
 
 
     addPatentBtn = Button(addWindow, text='Save Patient', command=saveInfo)
@@ -194,7 +198,7 @@ def getWeeklyPatients(option):
 
 def viewingProcess():
     patientView = Toplevel()
-    patientView.geometry('500x550')
+    patientView.attributes("-fullscreen", True)  # Make the window fullscreen
     patientView.title("View Schedule")
 
     week1 = getWeeklyPatients("week1")
@@ -202,42 +206,57 @@ def viewingProcess():
     week3 = getWeeklyPatients("week3")
     week4 = getWeeklyPatients("week4")
 
-    #Display week1 patients
-    firstWeek = Frame(patientView, width=200, height=100, borderwidth=2, relief="solid")
-    firstWeek.pack()
+    def create_scrollable_frame(parent):
+        frame = Frame(parent, width=200, height=100, borderwidth=2, relief="solid")
+        frame.pack(side=TOP, fill=BOTH, expand=True, padx=5, pady=5)
+        canvas = Canvas(frame)
+        canvas.pack(side=LEFT, fill="both", expand=True)
+        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+        scrollbar.pack(side=RIGHT, fill="y")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        inner_frame = Frame(canvas)
+        canvas.create_window((0, 0), window=inner_frame, anchor="nw")
+        inner_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        return inner_frame
+
+    # Display week1 patients
+    firstWeek = create_scrollable_frame(patientView)
 
     firstLabel = Label(firstWeek, text="Week 1")
     firstLabel.pack()
+
     for i in week1:
         label = Label(firstWeek, text=i)
         label.pack()
 
-    #Display week2 patients
-    secondWeek = Frame(patientView, width=200, height=100, borderwidth=2, relief="solid")
-    secondWeek.pack()
+    # Display week2 patients
+    secondWeek = create_scrollable_frame(patientView)
 
     secondLabel = Label(secondWeek, text="Week 2")
     secondLabel.pack()
+
     for i in week2:
         label = Label(secondWeek, text=i)
         label.pack()
 
-    #Display week3 patients
-    thirdWeek = Frame(patientView, width=200, height=100, borderwidth=2, relief="solid")
-    thirdWeek.pack()
+    # Display week3 patients
+    thirdWeek = create_scrollable_frame(patientView)
 
     thirdLabel = Label(thirdWeek, text="Week 3")
     thirdLabel.pack()
+
     for i in week3:
         label = Label(thirdWeek, text=i)
         label.pack()
 
-    #Display week4 patients
-    fourthWeek = Frame(patientView, width=200, height=100, borderwidth=2, relief="solid")
-    fourthWeek.pack()
+    # Display week4 patients
+    fourthWeek = create_scrollable_frame(patientView)
 
     fourthLabel = Label(fourthWeek, text="Week 4")
     fourthLabel.pack()
+
     for i in week4:
         label = Label(fourthWeek, text=i)
         label.pack()
+
+    patientView.mainloop()
